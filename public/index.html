@@ -38,10 +38,8 @@
             reader.readAsDataURL(file);
             reader.onload = async () => {
                 const imageData = reader.result;
-                
-                // --- تم وضع رابط السكريبت الخاص بك هنا ---
+                // --- تم وضع رابطك الصحيح والنهائي هنا ---
                 const scriptURL = "https://script.google.com/macros/s/AKfycbz-oEqbKSWxa9pSdz96bsCqgwgSpLny62_mZydfNmH_JeFzbqakXO8HuRTkHdariAbB/exec";
-
                 try {
                     const response = await fetch(scriptURL, {
                         method: 'POST',
@@ -62,7 +60,7 @@
                     } else { throw new Error(result.message); }
                 } catch (error) {
                     console.error("Upload failed:", error);
-                    alert("فشل رفع الصورة! حدث خطأ ما.");
+                    alert("فشل رفع الصورة! تأكد من أن رابط السكريبت صحيح وأن النشر من نوع Web app.");
                     uploadLabel.textContent = '🚀 ارفع صورة الآن';
                 }
             };
