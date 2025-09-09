@@ -7,7 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style> body { font-family: 'Inter', sans-serif; } </style>
-</head>
+    
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+    </head>
 <body class="bg-gray-900 text-white flex items-center justify-center min-h-screen p-4">
     <div class="text-center p-8 bg-gray-800 rounded-2xl shadow-2xl max-w-lg w-full">
         <h1 class="text-4xl font-bold mb-4">E-asycomme</h1>
@@ -38,7 +41,6 @@
             reader.readAsDataURL(file);
             reader.onload = async () => {
                 const imageData = reader.result;
-                // --- تم وضع رابطك الصحيح والنهائي هنا ---
                 const scriptURL = "https://script.google.com/macros/s/AKfycbz-oEqbKSWxa9pSdz96bsCqgwgSpLny62_mZydfNmH_JeFzbqakXO8HuRTkHdariAbB/exec";
                 try {
                     const response = await fetch(scriptURL, {
@@ -59,8 +61,8 @@
                         });
                     } else { throw new Error(result.message); }
                 } catch (error) {
-                    console.error("Upload failed:", error);
-                    alert("فشل رفع الصورة! تأكد من أن رابط السكريبت صحيح وأن النشر من نوع Web app.");
+                    console.error("Upload failed:", error); // هذا السطر مهم، سيطبع الخطأ في الـ console
+                    alert("فشل رفع الصورة! حدث خطأ ما.");
                     uploadLabel.textContent = '🚀 ارفع صورة الآن';
                 }
             };
