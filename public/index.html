@@ -3,70 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-asycomme | الواقع المعزز بسهولة</title>
+    <title>E-asycomme | تجربة الواقع المعزز</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style> body { font-family: 'Inter', sans-serif; } </style>
-    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-    <script>eruda.init();</script>
 </head>
 <body class="bg-gray-900 text-white flex items-center justify-center min-h-screen p-4">
-    <div class="text-center p-8 bg-gray-800 rounded-2xl shadow-2xl max-w-lg w-full">
+
+    <div class="text-center p-8">
         <h1 class="text-4xl font-bold mb-4">E-asycomme</h1>
-        <p class="text-gray-400 mb-8">حوّل صورك إلى تجربة واقع معزز فريدة بضغطة زر ✨</p>
-        <div id="upload-container">
-            <label for="image-upload" id="upload-label" class="cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-block">
-                🚀 ارفع صورة الآن
-            </label>
-            <input type="file" id="image-upload" class="hidden" accept="image/png, image/jpeg, image/jpg">
-        </div>
-        <div id="result-container" class="hidden mt-8">
-            <h2 class="text-2xl font-medium mb-4">🎉 تم بنجاح!</h2>
-            <p class="text-gray-400 mb-4">امسح الكود التالي بكاميرا جوالك لتبدأ التجربة:</p>
-            <div id="qrcode" class="flex justify-center mb-4 bg-white p-2 rounded-lg w-fit mx-auto"></div>
-            <p class="text-gray-400 mt-4">أو شارك هذا الرابط:</p>
-            <a href="#" id="ar-link" target="_blank" class="text-indigo-400 break-all"></a>
-        </div>
+        <p class="text-gray-400 mb-8">هل أنت جاهز لتجربة الواقع المعزز؟ 🍕</p>
+
+        <a href="ar.html?img=https://res.cloudinary.com/do9agtdqi/image/upload/v1757466772/Pngtree_authentic_italian_pizza_with_cheese_19857475_ezlrt5.png" 
+           class="cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-block text-2xl">
+            ابدأ التجربة
+        </a>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-    <script>
-        const uploader = document.getElementById('image-upload');
-        const uploadLabel = document.getElementById('upload-label');
-        uploader.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            uploadLabel.textContent = '⏳ جاري التحويل والرفع...';
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = async () => {
-                const imageData = reader.result;
-                // --- تم وضع رابطك الجديد والصحيح هنا ---
-                const scriptURL = "https://script.google.com/macros/s/AKfycbzUe6t3lCQwbIR12NWqSjTU22vycLwtR9ocazA4-ylbUs7KNhVe7qcDf-Erw_8iV4hN/exec";
-                try {
-                    const response = await fetch(scriptURL, {
-                        method: 'POST',
-                        body: JSON.stringify({ imageData: imageData, fileName: file.name }),
-                        headers: { 'Content-Type': 'application/json' }
-                    });
-                    const result = await response.json();
-                    if(result.success) {
-                        const arPageLink = `/ar.html?img=${encodeURIComponent(result.url)}`;
-                        document.getElementById('upload-container').classList.add('hidden');
-                        document.getElementById('result-container').classList.remove('hidden');
-                        document.getElementById('ar-link').href = arPageLink;
-                        document.getElementById('ar-link').textContent = "اضغط هنا لتجربة الواقع المعزز";
-                        new QRCode(document.getElementById('qrcode'), {
-                            text: window.location.origin + arPageLink,
-                            width: 200, height: 200,
-                        });
-                    } else { throw new Error(result.message); }
-                } catch (error) {
-                    console.error("Upload failed:", error);
-                    alert("فشل رفع الصورة! حدث خطأ ما.");
-                    uploadLabel.textContent = '🚀 ارفع صورة الآن';
-                }
-            };
-        });
-    </script>
+
 </body>
 </html>
