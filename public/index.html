@@ -3,20 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-asycomme | تجربة الواقع المعزز</title>
+    <title>E-asycomme | الواقع المعزز المستقبلي</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <style> body { font-family: 'Inter', sans-serif; } </style>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Oxanium', sans-serif;
+            background-color: #1a1a1a; /* Darkest grey/black */
+            color: #e0e0e0; /* Light grey for text */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            overflow: hidden; /* Prevent scroll */
+        }
+        .container {
+            background-color: #2a2a2a; /* Slightly lighter dark grey */
+            border-radius: 1rem; /* Softer edges */
+            box-shadow: 
+                0 0 15px rgba(0, 0, 0, 0.5), /* Deeper shadow */
+                0 0 30px rgba(70, 70, 70, 0.2); /* Subtle glow */
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #4a4a4a; /* Subtle border */
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(100, 100, 100, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            animation: rotate 15s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        h1 {
+            font-size: 3.5rem; /* Larger title */
+            font-weight: 700;
+            color: #ffffff; /* Pure white for title */
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em; /* Spaced out letters */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Soft glow for title */
+        }
+        p {
+            font-size: 1.15rem; /* Slightly larger paragraph */
+            color: #b0b0b0; /* Softer grey for description */
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        .start-button {
+            background: linear-gradient(135deg, #6a6a6a 0%, #3a3a3a 100%); /* Gradient for depth */
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 700;
+            padding: 1.2rem 3.5rem;
+            border-radius: 0.75rem; /* Slightly rounded */
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.05em;
+            text-transform: uppercase; /* Uppercase for futuristic feel */
+            text-decoration: none; /* Remove underline for links */
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        .start-button:hover {
+            background: linear-gradient(135deg, #7a7a7a 0%, #4a4a4a 100%);
+            transform: translateY(-3px) scale(1.02); /* Lift and slightly enlarge */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+        .start-button:active {
+            transform: translateY(0px) scale(0.99); /* Press effect */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen p-4">
+<body>
 
-    <div class="text-center p-8">
-        <h1 class="text-4xl font-bold mb-4">E-asycomme</h1>
-        <p class="text-gray-400 mb-8">هل أنت جاهز لتجربة الواقع المعزز؟ 🍕</p>
-
-        <a href="ar.html?img=https://res.cloudinary.com/do9agtdqi/image/upload/v1757466772/Pngtree_authentic_italian_pizza_with_cheese_19857475_ezlrt5.png" 
-           class="cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-block text-2xl">
-            ابدأ التجربة
+    <div class="container">
+        <h1>E-asycomme AR</h1>
+        <p>اكتشف آفاقًا جديدة مع الواقع المعزز. استكشف مجسمات ثلاثية الأبعاد تنبض بالحياة في عالمك.</p>
+        <a href="ar.html" class="start-button">
+            انطلق في التجربة
         </a>
     </div>
 
